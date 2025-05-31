@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EPISCAN - Rastreio do Paciente</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body h2 {
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,32 +28,22 @@
 
     <div class="main-content">
         <div class="container">
-            <h2>RASTREIO DO PACIENTE</h2>
+            <h1>RASTREIO DO PACIENTE</h1>
             <div class="form-columns">
-                <div class="column form-section" style="flex: 0.4;"> {/* Coluna para os campos de busca */}
+                <div class="column form-section" style="flex: 0.4;"> 
                     <label for="nome-paciente">Nome do paciente</label>
                     <input type="text" id="nome-paciente" name="nome-paciente" placeholder="XXXXXX">
 
                     <label for="data-nascimento">Data de nascimento</label>
                     <input type="text" id="data-nascimento" name="data-nascimento" placeholder="XX/XX/XXXX">
-                    {/* Considerar usar input type="date" para melhor UX */}
                     <button type="submit" onclick="alert('BUSCANDO')" class="button" style="margin-top: 10px;">BUSCAR</button>
-                </div>
-                <div class="column" style="flex: 0.6;"> {/* Coluna para o resultado */}
-                     <h3>Resultado da busca:</h3>
-                    <div class="search-result">
-                        {/* O conteúdo do resultado da busca apareceria aqui,
-                            provavelmente preenchido dinamicamente com JavaScript */}
-                        <p>Nenhum paciente encontrado ou aguardando busca.</p>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <footer>
-        <p>contato@episcan.com</p>
-        <p>55 51 XXXX-XXXX</p>
+        <p><img src="img/icone_email.png" alt="Email" class="footer-icon"> contato@episcan.com</p>
+        <p><img src="img/icone_telefone.png" alt="Telefone" class="footer-icon"> 55 51 XXXX-XXXX</p>
     </footer>
 </body>
 </html>
