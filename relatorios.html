@@ -8,40 +8,42 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="logo.png" alt="EPISCAN Logo">
-        </div>
         <nav>
             <ul>
+                <li><a href="index.html">HOME</a></li>
                 <li><a href="cadastro.html">CADASTRO DE BACTÉRIAS</a></li>
                 <li><a href="relatorios.html">RELATÓRIOS</a></li>
                 <li><a href="mapa_atencao.html">MAPA DE ATENÇÃO</a></li>
                 <li><a href="rastreio.html">RASTREIO DE PACIENTES</a></li>
+                
             </ul>
         </nav>
     </header>
 
-    <div class="main-content">
-        <div class="container">
-            <h2>RELATÓRIO DE DETECÇÕES</h2>
-            <form class="form-section">
-                <label for="hospital-desejado">Hospital desejado</label>
-                <select id="hospital-desejado" name="hospital-desejado">
-                    <option value="">Selecione o hospital...</option>
-                    {/* Adicione opções de hospitais aqui */}
-                </select>
-
-                <div>
-                    <button type="submit" class="button" style="margin-top: 20px;">GERAR RELATÓRIO</button>
-                    <span class="csv-info">em CSV.</span>
-                </div>
-            </form>
-        </div>
-    </div>
+    <main>
+      <h1 class="report-title">RELATÓRIO DE DETECÇÕES</h1>
+      <section class="report-options">
+        <form> 
+            <div class="form-row">
+              <label for="hospital-select">Hospital desejado:</label>
+              <select id="hospital-select" name="hospital-desejado">
+                  <option value="">Selecione o hospital...</option>
+                  <option value="hospital_a">Hospital Santo Antônio</option>
+                  <option value="hospital_b">Hospital Santa Rita</option>
+                  <option value="hospital_c">Hospital São José</option>
+                  <option value="hospital_c">Hospital São Francisco</option>
+                  <option value="hospital_c">Hospital Nora Teixeira</option>
+              </select>
+            </div>
+            <button type="submit" class="button-gerar-relatorio">GERAR RELATÓRIO</button>
+            <a href="#" class="csv-download-link">em CSV</a>
+        </form>
+      </section>
+    </main>
 
     <footer>
-        <p>contato@episcan.com</p>
-        <p>55 51 XXXX-XXXX</p>
+        <p><img src="img/icone_email.png" alt="Email" class="footer-icon"> contato@episcan.com</p>
+        <p><img src="img/icone_telefone.png" alt="Telefone" class="footer-icon"> 55 51 XXXX-XXXX</p>
     </footer>
 </body>
 </html>

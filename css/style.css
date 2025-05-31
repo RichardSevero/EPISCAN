@@ -9,27 +9,19 @@ body {
 }
 
 header {
-    background-color: linear-gradient(135deg, #662ea7, #1b0f3f);
+    background: linear-gradient(135deg, #662ea7, #1b0f3f);
     color: white;
-    padding: 15px 30px; /* Mantém padding mesmo sem logo grande */
+    padding: 15px 30px;
     display: flex;
-    justify-content: space-between; /* Isso vai empurrar o nav para a direita se .header-placeholder-logo estiver vazio ou for pequeno */
     align-items: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    height: 60px; /* Definir uma altura fixa para o header */
+    height: 60px;
     box-sizing: border-box;
 }
 
-/* Estilo para o placeholder da logo no header (opcional) */
-.header-placeholder-logo {
-    /* Se quiser um texto "EPISCAN" pequeno no header: */
-    /* font-size: 1.5em; */
-    /* font-weight: bold; */
-    /* color: white; */
-    min-width: 50px; /* Apenas para manter algum espaço se o nav for para a direita */
+header nav {
+    margin-left: auto;
 }
-
-/* Removido estilo para header .logo img, pois a logo não está mais no header */
 
 header nav ul {
     list-style: none;
@@ -42,99 +34,137 @@ header nav ul li {
     margin-left: 20px;
 }
 
+header nav ul li:first-child {
+    /* margin-left: 0;  Removido conforme a regra de retirar comentários */
+}
+
 header nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-/* Conteúdo Principal da Página */
-.page-main-content {
+header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Adicione isto para centralizar verticalmente */
     padding: 40px 20px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.image-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-
-
-.main-logo-container {
-    width: 100%; /* Ocupa a largura para poder alinhar a imagem dentro */
-    max-width: 1000px; /* Mesma largura do content-container para alinhamento */
-    margin-bottom: 20px; /* Espaço entre a logo principal e o texto abaixo */
-    text-align: left; /* Alinha a imagem da logo à esquerda dentro deste container */
-}
-
-#mainPageLogo { /* Estilo para a logo principal no corpo */
-    height: 100px; /* Altura da logo principal - ajuste conforme necessário */
-    width: auto;
-}
-
-.content-container {
-    max-width: 1000px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    /* margin-top: 20px; /* Adiciona um espaço se a logo estiver muito colada */
-}
-
-.home-intro .text-content { /* .home-intro é a mesma div que .content-container neste caso */
-    flex: 1;
-    text-align: left;
-}
-
-.home-intro .text-content h1 {
-    font-size: 2.8em;
-    margin-top: 0;
+main h1 {
+    text-align: center;
     margin-bottom: 15px;
-    line-height: 1.3;
+    font-size: 2.2em;
 }
 
-.home-intro .text-content p {
-    font-size: 1.4em;
-    line-height: 1.6;
-    margin-bottom: 0;
+form {
+    background-color: rgba(27, 15, 63, 0.5);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
 }
 
-.home-intro .image-content {
-   /* Imagem das covids */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 50px;
+    justify-content: space-between;
 }
 
-#covidIcons {
-    max-width: 380px;
-    height: auto;
+.column {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
 }
 
+.column label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #E0E0E0;
+    font-size: 0.95em;
+}
 
-/* Estilos do rodapé */
+.column input[type="text"],
+.column select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #8a6aaa;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    font-size: 1em;
+}
+
+.column input[type="text"]::placeholder {
+    color: #b0b0b0;
+}
+
+.column select {
+    color: #FFFFFF;
+}
+
+.column select option {
+    background-color: #3a2063;
+    color: #FFFFFF;
+}
+
+button[type="submit"] {
+    display: block;
+    min-width: 220px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #8e44ad, #7b3f9e);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 40px auto 0;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #7b3f9e, #6a358a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
 footer {
-    background-color: linear-gradient(135deg, #662ea7, #1b0f3f);
+    background: linear-gradient(135deg, #662ea7, #1b0f3f);
     color: white;
     padding: 20px 30px;
     display: flex;
+    justify-content: center;
     align-items: center;
     width: 100%;
     box-sizing: border-box;
     margin-top: auto;
+    flex-wrap: wrap;
 }
 
 footer p {
-    margin: 5px 10px;
-    display: flex;
-    align-items: center;
+    margin: 8px 15px;
+    display: flex; /* Alterado de 'left' para 'flex' que é um valor válido para display, assumindo que era para alinhar com o ícone */
+    align-items: center; /* Alterado de 'left' para 'center' ou 'flex-start' para alinhamento vertical dos itens flex */
+    font-size: 0.9em;
 }
 
 .footer-icon {
@@ -142,5 +172,83 @@ footer p {
     margin-right: 8px;
 }
 
-/* --- Mantenha o restante dos seus estilos --- */
-/* ... (outros estilos como .form-section, .button, etc.) ... */
+main h1.report-title {
+    text-align: center;
+    align-self: ;
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 20px;
+}
+
+.report-options {
+    background-color: rgba(35, 19, 60, 0.8);
+    padding: 35px 30px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 480px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.report-options .form-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.report-options .form-row label {
+    color: #e0e0e0;
+    font-size: 0.9em;
+}
+
+.report-options .form-row select {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid #7a5fab;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-size: 0.9em;
+    min-width: 200px;
+}
+
+.report-options .form-row select option {
+    background-color: #3a2063;
+    color: #ffffff;
+}
+
+.report-options .button-gerar-relatorio {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #9b59b6, #844fad);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    align-self: center;
+    min-width: 180px;
+}
+
+.report-options .button-gerar-relatorio:hover {
+    background: linear-gradient(135deg, #844fad, #723f92);
+    transform: translateY(-1px);
+}
+
+.report-options .csv-download-link {
+    color: #d8c2ff;
+    text-decoration: none;
+    font-size: 0.85em;
+    align-self: flex-start;
+    margin-top: -10px;
+}
+
+.report-options .csv-download-link:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
