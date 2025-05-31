@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPISCAN - Cadastro de Cultura de Bactéria</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/episcan_logo.png" alt="EPISCAN Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="cadastro.html">CADASTRO DE BACTÉRIAS</a></li>
+                <li><a href="relatorios.html">RELATÓRIOS</a></li>
+                <li><a href="mapa_atencao.html">MAPA DE ATENÇÃO</a></li>
+                <li><a href="rastreio.html">RASTREIO DE PACIENTES</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <h2>CADASTRO DE CULTURA DE BACTÉRIA</h2>
+            <form class="form-section">
+                <div class="form-columns">
+                    <div class="column">
+                        <label for="id-amostra">ID DA AMOSTRA</label>
+                        <input type="text" id="id-amostra" name="id-amostra">
+
+                        <label for="bacteria-detectada">BACTERIA DETECTADA</label>
+                        <select id="bacteria-detectada" name="bacteria-detectada">
+                            <option value="">Selecione...</option>
+                            {/* Adicione opções de bactérias aqui */}
+                        </select>
+
+                        <label for="paciente">PACIENTE</label>
+                        <input type="text" id="paciente" name="paciente">
+
+                        <label for="andar">ANDAR</label>
+                        <input type="text" id="andar" name="andar">
+
+                        <label for="leito">LEITO</label>
+                        <input type="text" id="leito" name="leito">
+                    </div>
+                    <div class="column">
+                        <label for="profissional">PROFISSIONAL RESPONSÁVEL</label>
+                        <input type="text" id="profissional" name="profissional">
+
+                        <label for="grau-alarme">GRAU DE ALARME</label>
+                        <select id="grau-alarme" name="grau-alarme">
+                            <option value="">Selecione...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            {/* ... até 10 */}
+                            <option value="10">10</option>
+                        </select>
+
+                        <label for="tipo-amostra">TIPO DE AMOSTRA</label>
+                        <input type="text" id="tipo-amostra" name="tipo-amostra">
+                    </div>
+                </div>
+                <button type="submit" class="button" style="margin-top: 20px;">CADASTRAR</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>contato@episcan.com</p>
+        <p>55 51 XXXX-XXXX</p>
+    </footer>
+</body>
+</html>

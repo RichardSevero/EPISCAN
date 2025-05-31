@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4; /* Um cinza claro para o fundo geral */
+    color: #333;
+}
+
+header {
+    background-color: #6a0dad; /* Roxo predominante das imagens */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px; /* Ajuste conforme o tamanho do seu logo */
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-content {
+    padding: 20px;
+    margin: 20px;
+    background-color: #8A2BE2; /* Um roxo um pouco mais claro para o conteúdo principal */
+    border-radius: 8px;
+    color: white; /* Texto branco para contraste */
+}
+
+.main-content h1, .main-content h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.home-intro {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.home-intro .text-content {
+    flex: 1;
+}
+
+.home-intro .image-content img {
+    max-width: 300px; /* Ajuste o tamanho das imagens dos vírus */
+    height: auto;
+}
+
+
+.form-section {
+    background-color: #6a0dad; /* Cor de fundo dos formulários */
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.form-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-section input[type="text"],
+.form-section input[type="date"],
+.form-section select {
+    width: calc(100% - 22px); /* Ajusta para padding e borda */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-columns {
+    display: flex;
+    gap: 20px;
+}
+
+.form-columns .column {
+    flex: 1;
+}
+
+
+.button {
+    background-color: #4CAF50; /* Verde para botões de ação */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.csv-info {
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.map-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.search-result {
+    background-color: #e0e0e0; /* Cinza claro para a área de resultado */
+    padding: 20px;
+    min-height: 150px;
+    border-radius: 4px;
+    color: #333; /* Texto escuro para contraste */
+}
+
+footer {
+    background-color: #6a0dad; /* Roxo predominante */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative; /* pode ser fixed se quiser sempre visível */
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer p {
+    margin: 5px 0;
+}

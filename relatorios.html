@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPISCAN - Relatório de Detecções</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="EPISCAN Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="cadastro.html">CADASTRO DE BACTÉRIAS</a></li>
+                <li><a href="relatorios.html">RELATÓRIOS</a></li>
+                <li><a href="mapa_atencao.html">MAPA DE ATENÇÃO</a></li>
+                <li><a href="rastreio.html">RASTREIO DE PACIENTES</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <h2>RELATÓRIO DE DETECÇÕES</h2>
+            <form class="form-section">
+                <label for="hospital-desejado">Hospital desejado</label>
+                <select id="hospital-desejado" name="hospital-desejado">
+                    <option value="">Selecione o hospital...</option>
+                    {/* Adicione opções de hospitais aqui */}
+                </select>
+
+                <div>
+                    <button type="submit" class="button" style="margin-top: 20px;">GERAR RELATÓRIO</button>
+                    <span class="csv-info">em CSV.</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>contato@episcan.com</p>
+        <p>55 51 XXXX-XXXX</p>
+    </footer>
+</body>
+</html>
