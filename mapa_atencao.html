@@ -8,9 +8,6 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="img/episcan_logo.png" alt="EPISCAN Logo">
-        </div>
         <nav>
             <ul>
                 <li><a href="index.html">HOME</a></li>
@@ -24,25 +21,31 @@
 
     <div class="main-content">
         <div class="container">
-            <h2>MAPA DE ATENÇÃO</h2>
+            <h3>MAPA DE ATENÇÃO</h3>
             <div class="form-columns">
-                <div class="column form-section" style="flex: 0.3;"> {/* Coluna menor para os filtros */}
+                <div class="column form-section" style="flex: 0.3;">
                     <label for="hospital">HOSPITAL</label>
                     <select id="hospital" name="hospital">
                         <option value="">Selecione...</option>
-                        {/* Adicione opções de hospitais */}
+                        <option value="hospital_a">Hospital Santo Antônio</option>
+                        <option value="hospital_b">Hospital Santa Rita</option>
+                        <option value="hospital_c">Hospital São José</option>
+                        <option value="hospital_c">Hospital São Francisco</option>
+                        <option value="hospital_c">Hospital Nora Teixeira</option>
                     </select>
 
                     <label for="andar-mapa">ANDAR</label>
                     <select id="andar-mapa" name="andar-mapa">
                         <option value="">Selecione...</option>
                         <option value="1">1º ANDAR</option>
+                        <option value="2">2º ANDAR</option>
+                        <option value="3">3º ANDAR</option>
                         {/* Adicione outras opções de andar */}
                     </select>
                      <button type="button" class="button" style="margin-top: 10px;">ATUALIZAR MAPA</button>
                 </div>
-                <div class="column map-container" style="flex: 0.7;"> {/* Coluna maior para o mapa */}
-                    <img src="img/mapa_calor.png" alt="Mapa de Atenção do Hospital">
+                <div class="column map-container" style="flex: 0.7;">
+                    <iframe src="mapasvg.html" alt="Mapa de Atenção do Hospital">
                 </div>
             </div>
         </div>

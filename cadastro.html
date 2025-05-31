@@ -26,9 +26,21 @@
         <div class="column">
           <label>ID DA AMOSTRA</label>
           <input type="text" />
-
-          <label>BACTERIA DETECTADA</label>
-          <select><option>Selecione...</option></select>
+          <label for="bacteria-detectada">BACTERIA DETECTADA</label>
+          <select id="bacteria-detectada" name="bacteria_detectada">
+              <option value="">Selecione uma bactéria...</option>
+              <option value="kpc">Klebsiella pneumoniae carbapenemase (KPC)</option>
+              <option value="mrsa">Staphylococcus aureus resistente à meticilina (MRSA)</option>
+              <option value="pseudomonas">Pseudomonas aeruginosa</option>
+              <option value="acinetobacter">Acinetobacter baumannii</option>
+              <option value="vre">Enterococcus faecium resistente à vancomicina (VRE)</option>
+              <option value="esbl">Enterobactérias produtoras de ESBL</option>
+              <option value="candida_auris">Candida auris</option>
+              <option value="clostridium_difficile">Clostridium difficile</option>
+              <option value="outra">Outra</option>
+              {/* Adicione mais opções conforme necessário */}
+          </select>
+          
 
           <label>PACIENTE</label>
           <input type="text" />
@@ -44,15 +56,26 @@
           <label>PROFISSIONAL RESPONSÁVEL</label>
           <input type="text" />
 
-          <label>GRAU DE ALARME</label>
-          <select><option>1-10</option></select>
-
+          <label for="grau-alarme">GRAU DE ALARME</label>
+          <select id="grau-alarme" name="grau_alarme">
+              <option value="">Selecione o grau...</option>
+              <option value="1">1 (Muito Baixo)</option>
+              <option value="2">2</option>
+              <option value="3">3 (Baixo)</option>
+              <option value="4">4</option>
+              <option value="5">5 (Médio)</option>
+              <option value="6">6</option>
+              <option value="7">7 (Alto)</option>
+              <option value="8">8</option>
+              <option value="9">9 (Muito Alto)</option>
+              <option value="10">10 (Crítico)</option>
+          </select>
           <label>TIPO DE AMOSTRA</label>
           <input type="text" />
         </div>
       </div>
 
-      <button type="submit">CADASTRAR</button>
+      <button type="submit" onclick="alert('CADASTRADO COM SUCESSO!')">CADASTRAR</button>
     </form>
   </main>
   <footer>
@@ -61,3 +84,32 @@
 </footer>
 </body>
 </html>
+<script>
+    document.getElementById("form-bacteria").addEventListener("submit", async (e) => {
+        e.preventDefault();
+    
+        const nome = document.getElementById("tipo-amostra").value;
+        const gravidade = document.getElementById("paciente").value;
+        console.log(nome,gravidade)
+    
+        if (!nome || !gravidade) {
+            alert("Preencha todos os campos obrigatórios.");
+            return;
+        }
+    
+        try {
+            const resposta = await fetch('/api/bacterias', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome, gravidade })
+            });
+    
+            const resultado = await resposta.json();
+            alert(resultado.mensagem);
+            document.getElementById("form-bacteria").reset();
+        } catch (erro) {
+            alert("Erro ao cadastrar. Verifique o servidor.");
+            console.error(erro);
+        }
+    });
+    </script>
