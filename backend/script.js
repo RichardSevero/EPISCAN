@@ -39,3 +39,38 @@ app.post('/api/bacterias', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });
+
+
+
+
+
+
+<script>
+    document.getElementById("form-bacteria").addEventListener("submit", async (e) => {
+        e.preventDefault();
+    
+        const nome = document.getElementById("tipo-amostra").value;
+        const gravidade = document.getElementById("paciente").value;
+        console.log(nome,gravidade)
+    
+        if (!nome || !gravidade) {
+            alert("Preencha todos os campos obrigatórios.");
+            return;
+        }
+    
+        try {
+            const resposta = await fetch('/api/bacterias', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome, gravidade })
+            });
+    
+            const resultado = await resposta.json();
+            alert(resultado.mensagem);
+            document.getElementById("form-bacteria").reset();
+        } catch (erro) {
+            alert("Erro ao cadastrar. Verifique o servidor.");
+            console.error(erro);
+        }
+    });
+    </script>
