@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Epidemiológico</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    svg {
+      display: block;
+      margin: auto;
+      width: 100%;
+      height: auto;
+      max-width: 1920px;
+    }
+    .tooltip {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  </style>
+</head>
+<body>
+
+<div id="tooltip" class="tooltip"></div>
+
+<svg id="mapa" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <image href="101.png" x="0" y="0" width="1920" height="1080" />
+</svg>
+
+<script>
+  const sala_coords = {
+    "101": { x: 460, y: 450 },
+    "102": { x: 840, y: 450 },
+    "103": { x: 1170, y: 450 },
+    "104": { x: 460, y: 850 },
+    "105": { x: 840, y: 850 },
+    "106": { x: 1170, y: 850 },
+    "107": { x: 1290, y: 850 },
+    "108": { x: 1580, y: 850 }
+  };
+
+  const bacterias = [
+    { sala: "101", tipo: "MRSA", gravidade: "alta" },
+    { sala: "103", tipo: "MRSA", gravidade: "alta" },
+    { sala: "107", tipo: "Klebsiella", gravidade: "baixa" }
+  ];
+
+  const corGravidade = {
+    "baixa": "green",
+    "média": "orange",
+    "alta": "red"
+  };
+
+  const svg = document.getElementById('mapa');
+  const tooltip = document.getElementById('tooltip');
+
+  bacterias.forEach(b => {
+    const { x, y } = sala_coords[b.sala];
+
+    const grupo = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    grupo.setAttribute("class", "sala");
+    grupo.setAttribute("data-info", `Sala ${b.sala} | ${b.tipo} | Gravidade: ${b.gravidade}`);
+
+    const circulo = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circulo.setAttribute("cx", x);
+    circulo.setAttribute("cy", y);
+    circulo.setAttribute("r", 20);
+    circulo.setAttribute("fill", corGravidade[b.gravidade]);
+    circulo.setAttribute("opacity", 0.7);
+
+    const texto = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    texto.setAttribute("x", x);
+    texto.setAttribute("y", y - 25);
+    texto.setAttribute("text-anchor", "middle");
+    texto.setAttribute("font-size", "20px");
+    texto.setAttribute("fill", "black");
+    texto.textContent = b.tipo;
+
+    grupo.appendChild(circulo);
+    grupo.appendChild(texto);
+    svg.appendChild(grupo);
+  });
+
+  const salas = document.querySelectorAll('.sala');
+  salas.forEach(sala => {
+    sala.addEventListener('mousemove', e => {
+      tooltip.style.opacity = 1;
+      tooltip.style.left = `${e.pageX + 10}px`;
+      tooltip.style.top = `${e.pageY + 10}px`;
+      tooltip.textContent = sala.dataset.info;
+    });
+    sala.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = 0;
+    });
+  });
+</script>
+
+</body>
+</html>
