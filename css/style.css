@@ -34,9 +34,6 @@ header nav ul li {
     margin-left: 20px;
 }
 
-header nav ul li:first-child {
-    /* margin-left: 0;  Removido conforme a regra de retirar comentários */
-}
 
 header nav ul li a {
     color: white;
