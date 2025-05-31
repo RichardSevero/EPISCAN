@@ -87,29 +87,60 @@
 <script>
     document.getElementById("form-bacteria").addEventListener("submit", async (e) => {
         e.preventDefault();
-    
-        const nome = document.getElementById("tipo-amostra").value;
-        const gravidade = document.getElementById("paciente").value;
-        console.log(nome,gravidade)
-    
-        if (!nome || !gravidade) {
-            alert("Preencha todos os campos obrigatórios.");
+
+        // Tentativa de pegar valores com base nos IDs que VOCÊ USOU no snippet problemático.
+        // Idealmente, 'nome_bacteria' viria de 'bacteria-detectada' e 'gravidade_valor' de 'grau-alarme'.
+        const nomeDaBacteria = document.getElementById("tipo-amostra").value; // No seu snippet, isso era 'nome'
+        const gravidadeDaBacteria = document.getElementById("paciente").value; // No seu snippet, isso era 'gravidade'
+
+        // --- Obtendo os outros campos (exemplo, você precisa dos IDs corretos nos inputs HTML) ---
+        // const idcultura = document.getElementById("id-amostra") ? document.getElementById("id-amostra").value : null;
+        // const idfuncionario = document.getElementById("profissional-responsavel") ? document.getElementById("profissional-responsavel").value : null;
+        // const idleito = document.getElementById("leito-input") ? document.getElementById("leito-input").value : null;
+        // const bacteriaOriginal = document.getElementById("bacteria-detectada") ? document.getElementById("bacteria-detectada").value : null; // Nome da bactéria pelo campo correto
+        // const gravidadeOriginal = document.getElementById("grau-alarme") ? document.getElementById("grau-alarme").value : null; // Gravidade pelo campo correto
+
+
+        // Log corrigido: Usando as variáveis que foram definidas acima.
+        // O backend espera um campo 'nome' para o nome da bactéria e 'gravidade' para a severidade.
+        console.log("Valor do campo 'tipo-amostra' (enviado como 'nome' para o backend):", nomeDaBacteria);
+        console.log("Valor do campo 'paciente' (enviado como 'gravidade' para o backend):", gravidadeDaBacteria);
+        // console.log("ID Cultura (exemplo):", idcultura);
+        // console.log("ID Funcionário (exemplo):", idfuncionario);
+        // console.log("ID Leito (exemplo):", idleito);
+        // console.log("Nome da Bactéria (do campo correto 'bacteria-detectada'):", bacteriaOriginal);
+        // console.log("Gravidade (do campo correto 'grau-alarme'):", gravidadeOriginal);
+
+
+        // Validação: Usando as variáveis que você definiu e que serão enviadas.
+        if (!nomeDaBacteria || !gravidadeDaBacteria) {
+            alert("Preencha todos os campos obrigatórios ('Tipo de Amostra' e 'Paciente', conforme seu script).");
             return;
         }
-    
+
         try {
+            const payload = {
+                nome: nomeDaBacteria,       // O backend espera 'nome' para o nome da bactéria
+                gravidade: gravidadeDaBacteria // O backend espera 'gravidade'
+                // Se você definir e quiser enviar os outros campos:
+                // idcultura: idcultura,
+                // idfuncionario: idfuncionario,
+                // idleito: idleito,
+                // (Lembre-se que o backend precisa ser ajustado para receber e processar esses campos extras)
+            };
+
             const resposta = await fetch('/api/bacterias', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nome, gravidade })
+                // Corpo da requisição corrigido para enviar o payload definido acima.
+                body: JSON.stringify(payload)
             });
-    
+
             const resultado = await resposta.json();
             alert(resultado.mensagem);
             document.getElementById("form-bacteria").reset();
         } catch (erro) {
             alert("Erro ao cadastrar. Verifique o servidor.");
-            console.error(erro);
+            console.error("Detalhes do erro:", erro);
         }
     });
-    </script>

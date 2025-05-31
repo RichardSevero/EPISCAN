@@ -23,10 +23,10 @@ conexao.connect(err => {
 
 // Rota POST da API
 app.post('/api/bacterias', (req, res) => {
-  const { nome, gravidade } = req.body;
+  const {idcultura, idfuncionario, idleito, bacteria, gravidade} = req.body;
 
-  const sql = 'INSERT INTO culturabacteria (idculturabacteria, bacteria, gravidade) VALUES (1, ?, ?)';
-  conexao.query(sql, [nome, gravidade], (err) => {
+  const sql = 'INSERT INTO cultura (idcultura, idfuncionario, idleito, bacteria, gravidade) VALUES (?, ?, ?, ?, ?)';
+  conexao.query(sql, [idcultura, idfuncionario, idleito, bacteria, gravidade], (err) => {
     if (err) {
       console.error('Erro ao inserir:', err);
       return res.status(500).json({ mensagem: 'Erro ao salvar no banco.' });
