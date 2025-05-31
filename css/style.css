@@ -174,7 +174,7 @@ footer p {
 
 main h1.report-title {
     text-align: center;
-    align-self: ;
+    align-self: 0;
     width: 100%;
     max-width: 480px;
     margin-bottom: 20px;
