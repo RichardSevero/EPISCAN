@@ -23,3 +23,5 @@ A partir daí, o sistema utilizará os dados fornecidos e sensores ambientais pa
 ---
 
 💡 *Nota:* O sistema é projetado para uso por profissionais da saúde e instituições autorizadas.
+
+https://episcan.vercel.app/rastreio.html
