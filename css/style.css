@@ -1,8 +1,7 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    /* Gradiente atualizado: de um roxo claro para o roxo escuro do header/footer */
-    background: linear-gradient(10deg, #6e3ca7, #4D2C73);
+    background: linear-gradient(135deg, #662ea7, #1b0f3f);
     color: white;
     display: flex;
     flex-direction: column;
@@ -10,25 +9,27 @@ body {
 }
 
 header {
-    background-color: #4D2C73; /* Roxo escuro e sólido para o header */
+    background-color: linear-gradient(135deg, #662ea7, #1b0f3f);
     color: white;
-    padding: 15px 30px;
+    padding: 15px 30px; /* Mantém padding mesmo sem logo grande */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Isso vai empurrar o nav para a direita se .header-placeholder-logo estiver vazio ou for pequeno */
     align-items: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    height: 60px; /* Definir uma altura fixa para o header */
+    box-sizing: border-box;
 }
 
-header .logo img {
-    height: 70px; /* Logo maior */
-    width: auto;
+/* Estilo para o placeholder da logo no header (opcional) */
+.header-placeholder-logo {
+    /* Se quiser um texto "EPISCAN" pequeno no header: */
+    /* font-size: 1.5em; */
+    /* font-weight: bold; */
+    /* color: white; */
+    min-width: 50px; /* Apenas para manter algum espaço se o nav for para a direita */
 }
 
-header .logo span { /* Se estiver usando texto para o logo */
-    font-size: 28px; /* Aumentar tamanho se for texto */
-    font-weight: bold;
-    color: white;
-}
+/* Removido estilo para header .logo img, pois a logo não está mais no header */
 
 header nav ul {
     list-style: none;
@@ -52,56 +53,82 @@ header nav ul li a {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: left;
+    align-items: center;
+    justify-content: center; /* Adicione isto para centralizar verticalmente */
     padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.main-logo-container {
+    width: 100%; /* Ocupa a largura para poder alinhar a imagem dentro */
+    max-width: 1000px; /* Mesma largura do content-container para alinhamento */
+    margin-bottom: 20px; /* Espaço entre a logo principal e o texto abaixo */
+    text-align: left; /* Alinha a imagem da logo à esquerda dentro deste container */
+}
+
+#mainPageLogo { /* Estilo para a logo principal no corpo */
+    height: 100px; /* Altura da logo principal - ajuste conforme necessário */
+    width: auto;
 }
 
 .content-container {
     max-width: 1000px;
     width: 100%;
-}
-
-.home-intro {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 60px; /* Aumentado o espaço para empurrar a imagem mais para a direita */
-    color: white;
+    gap: 40px;
+    /* margin-top: 20px; /* Adiciona um espaço se a logo estiver muito colada */
 }
 
-.home-intro .text-content {
+.home-intro .text-content { /* .home-intro é a mesma div que .content-container neste caso */
     flex: 1;
+    text-align: left;
 }
 
 .home-intro .text-content h1 {
-    font-size: 2.2em;
+    font-size: 2.8em;
     margin-top: 0;
     margin-bottom: 15px;
     line-height: 1.3;
 }
 
 .home-intro .text-content p {
-    font-size: 1.1em;
+    font-size: 1.4em;
     line-height: 1.6;
     margin-bottom: 0;
 }
 
-.home-intro .image-content img {
-    max-width: 360px; /* Ícones COVID maiores */
-    height: auto;
-    display: block;
+.home-intro .image-content {
+   /* Imagem das covids */
 }
+
+#covidIcons {
+    max-width: 380px;
+    height: auto;
+}
+
 
 /* Estilos do rodapé */
 footer {
-    background-color: #4D2C73; /* Mesmo roxo escuro e sólido do header */
+    background-color: linear-gradient(135deg, #662ea7, #1b0f3f);
     color: white;
     padding: 20px 30px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     box-sizing: border-box;
+    margin-top: auto;
 }
 
 footer p {
@@ -115,35 +142,5 @@ footer p {
     margin-right: 8px;
 }
 
-/* --- Mantenha o restante dos seus estilos para outras páginas e elementos --- */
-/* Exemplo: .form-section, .button, etc. */
-
-.form-section {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.form-columns {
-    display: flex;
-    gap: 20px;
-}
-
-.form-columns .column {
-    flex: 1;
-}
-
-.button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.button:hover {
-    background-color: #45a049;
-}
+/* --- Mantenha o restante dos seus estilos --- */
+/* ... (outros estilos como .form-section, .button, etc.) ... */
